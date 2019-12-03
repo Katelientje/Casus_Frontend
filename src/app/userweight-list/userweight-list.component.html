@@ -1,0 +1,45 @@
+<h1>Weights</h1>
+
+<div class="container">
+  <div class= "row">
+     <div style="float:left;margin-right:20px;">
+        <input type="text" [(ngModel)]="name" placeholder="Search User">
+        <button class="btn btn-info" (click)="findByName()" style = "position:relative; left:10px;">Search</button>
+    </div>
+  </div>
+</div>
+
+<br>
+<div class = "container">
+    <div class="row">
+            <div class="col-sm">
+               <highcharts-chart 
+                id="container" 
+                style="width: 450px; height: 400px; display: block;"
+              ></highcharts-chart>
+            </div>
+            <div class="col-sm">
+          <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Weight</th>
+                <th scope="col">Date</th>
+                <th scope="col">BMI</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let u of userweights">
+                <td>{{user.name}}</td>
+                <td>{{ u.value}}</td>
+                <td>{{ u.date }}</td>
+                <td>{{ u.bmi }} </td>
+                <td><button class="smallFont" style = "position:relative; left:15px;"(click)="deleteUserWeight(u.id)">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+ </div>
+     
